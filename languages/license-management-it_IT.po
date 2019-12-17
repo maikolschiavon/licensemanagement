@@ -1,0 +1,616 @@
+# Copyright (C) 2016 Easy Appointments
+# This file is distributed under the same license as the Easy Appointments package.
+msgid ""
+msgstr ""
+"Project-Id-Version: EasyAppointments 2.3.4\n"
+"POT-Creation-Date: 2019-11-12 18:38+0100\n"
+"PO-Revision-Date: 2019-11-12 18:38+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: js\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
+"X-Poedit-SearchPathExcluded-3: tests\n"
+
+#: init.php:135 init.php:136 license-management-enterprise.php:79
+#: tab/license-management-enterprise-tab.php:25
+#: utils/license-management-utils.php:379
+msgid "LBL_ADD_ENTERPRISE"
+msgstr "Crea una Azienda"
+
+#: init.php:143 init.php:144 license-management-license.php:89
+#: tab/license-management-license-tab.php:29
+#: utils/license-management-dashboard-utils.php:335
+#: utils/license-management-utils.php:377
+msgid "LBL_CREATE_LICENSE"
+msgstr "Crea una Targa"
+
+#: init.php:151 init.php:152 license-management-service.php:96
+#: tab/license-management-service-tab.php:19
+#: utils/license-management-dashboard-utils.php:428
+#: utils/license-management-dashboard-utils.php:496
+#: utils/license-management-utils.php:70 utils/license-management-utils.php:375
+msgid "LBL_CREATE_SERVICE"
+msgstr "Crea una Autorizzazione "
+
+#: license-management-dashboard.php:3 license-management-enterprise.php:101
+#: license-management-list.php:39
+msgid "LBL_DASHBOARD"
+msgstr "Dashboard"
+
+#: license-management-dashboard.php:8
+msgid "LBL_CHARTS"
+msgstr "Grafici"
+
+#: license-management-dashboard.php:9
+msgid "enterprise_license"
+msgstr "Aziende e Targhe"
+
+#: license-management-dashboard.php:12
+msgid "calendar"
+msgstr "Calendario"
+
+#: license-management-dashboard.php:58 license-management-service.php:104
+#: license-management-service.php:379 license-management-service.php:386
+#: utils/license-management-dashboard-utils.php:29
+#: utils/license-management-entity.php:170
+msgid "Service Name"
+msgstr "Nome Autorizzazione"
+
+#: license-management-dashboard.php:59 license-management-enterprise.php:105
+#: utils/license-management-dashboard-utils.php:26
+#: utils/license-management-dashboard-utils.php:213
+#: utils/license-management-dashboard-utils.php:340
+#: utils/license-management-entity.php:162
+#: utils/license-management-entity.php:165
+#: utils/license-management-entity.php:175
+msgid "Business Name"
+msgstr "Nome Azienda"
+
+#: license-management-dashboard.php:60 license-management-license.php:103
+msgid "Num License plate"
+msgstr "Numero Targa"
+
+#: license-management-dashboard.php:61
+msgid "LBL_SEARCH"
+msgstr "Cerca"
+
+#: license-management-dashboard.php:69 license-management-dashboard.php:73
+#: license-management-dashboard.php:83 license-management-dashboard.php:112
+msgid "LBL_CREATE_BOLT"
+msgstr "Creazione Rapida"
+
+#: license-management-dashboard.php:156
+msgid "SEARCH_FOR"
+msgstr "Cerco per :"
+
+#: license-management-dashboard.php:167 license-management-portal.php:230
+#: license-management-portal.php:337
+#: utils/license-management-dashboard-utils.php:19
+#: utils/license-management-dashboard-utils.php:416
+#: utils/license-management-dashboard-utils.php:484
+#: utils/license-management-dashboard-utils.php:556
+#: utils/license-management-utils.php:27 utils/license-management-utils.php:63
+msgid "status_1"
+msgstr "Da Prenotare"
+
+#: license-management-dashboard.php:168 license-management-portal.php:235
+#: license-management-portal.php:338
+#: utils/license-management-dashboard-utils.php:20
+#: utils/license-management-dashboard-utils.php:416
+#: utils/license-management-dashboard-utils.php:484
+#: utils/license-management-dashboard-utils.php:556
+#: utils/license-management-utils.php:27 utils/license-management-utils.php:64
+msgid "status_2"
+msgstr "In Lavorazione"
+
+#: license-management-dashboard.php:169 license-management-portal.php:240
+#: license-management-portal.php:339
+#: utils/license-management-dashboard-utils.php:21
+#: utils/license-management-dashboard-utils.php:416
+#: utils/license-management-dashboard-utils.php:484
+#: utils/license-management-dashboard-utils.php:556
+#: utils/license-management-utils.php:27 utils/license-management-utils.php:65
+msgid "status_3"
+msgstr "Completato"
+
+#: license-management-dashboard.php:239 utils/license-management-utils.php:68
+msgid "LBL_CHART_BECAME_COMPLETE"
+msgstr "Autorizzazioni che sono diventate Completate"
+
+#: license-management-dashboard.php:241 license-management-dashboard.php:257
+#: license-management-dashboard.php:274
+#: tab/license-management-customers-tab.php:20
+#: tab/license-management-enterprise-tab.php:20
+#: tab/license-management-license-tab.php:24
+#: tab/license-management-service-tab.php:29
+msgid "LBL_DOWNLOAD"
+msgstr "Download"
+
+#: license-management-dashboard.php:255 utils/license-management-utils.php:67
+msgid "LBL_CHART_COMPLETE_DATEEND"
+msgstr "Autorizzazioni Completate in Scadenza"
+
+#: license-management-dashboard.php:272
+msgid "LBL_CHART_STATUS"
+msgstr "Stato delle autorizzazioni"
+
+#: license-management-enterprise.php:97
+msgid "LBL_CONFIRM_DELETE_ENTERPRISE"
+msgstr "Vuoi cancellare l’azienda"
+
+#: license-management-enterprise.php:109
+#: utils/license-management-dashboard-utils.php:28
+#: utils/license-management-entity.php:160
+#: utils/license-management-entity.php:166
+msgid "Customer User"
+msgstr "Cliente"
+
+#: license-management-enterprise.php:144 license-management-license.php:202
+#: license-management-service.php:182 license-management-service.php:349
+msgid "ALERT_MANDATORY_FIELD"
+msgstr "Assicurati di aver valorizzato tutti i campi obbligatori"
+
+#: license-management-enterprise.php:156 license-management-license.php:213
+#: license-management-messages.php:133 license-management-service.php:192
+#: license-management-service.php:360
+msgid "Inserted"
+msgstr "Creazione eseguita  con successo"
+
+#: license-management-enterprise.php:158 license-management-license.php:215
+#: license-management-messages.php:135 license-management-service.php:194
+#: license-management-service.php:362
+msgid "Error Inserted"
+msgstr "Errore nella creazione"
+
+#: license-management-enterprise.php:161
+msgid "ALERT_ENTERPRISE_EXIST"
+msgstr "L’azienda inserita è già presente nel sistema!"
+
+#: license-management-enterprise.php:182
+msgid "ENTERPRISE_SUCCESS_DELETE"
+msgstr "Azienda Cancellata"
+
+#: license-management-enterprise.php:184
+msgid "ENTERPRISE_ERROR_DELETE"
+msgstr "Errore nella cancellazione dell’azienda"
+
+#: license-management-enterprise.php:214 license-management-license.php:273
+#: license-management-messages.php:185 license-management-service.php:255
+#: license-management-service.php:413
+msgid "Updated"
+msgstr "Aggiornato"
+
+#: license-management-enterprise.php:216 license-management-enterprise.php:219
+#: license-management-license.php:275 license-management-license.php:278
+#: license-management-messages.php:187 license-management-service.php:257
+#: license-management-service.php:260 license-management-service.php:415
+msgid "Error Updated"
+msgstr "Errore Aggiornamento"
+
+#: license-management-license.php:98
+msgid "LBL_CONFIRM_DELETE_LICENSE"
+msgstr "Vuoi cancellare la targa"
+
+#: license-management-license.php:107
+msgid "Enterprise"
+msgstr "Aziende"
+
+#: license-management-license.php:112
+#: utils/license-management-dashboard-utils.php:30
+msgid "Status"
+msgstr "Stato"
+
+#: license-management-license.php:117 license-management-portal.php:67
+#: license-management-portal.php:119 license-management-portal.php:268
+#: license-management-service.php:147
+#: utils/license-management-dashboard-utils.php:343
+#: utils/license-management-entity.php:177
+msgid "Messages"
+msgstr "Messaggio"
+
+#: license-management-license.php:218
+msgid "ALERT_LICENSE_EXIST"
+msgstr "La targa inserita è già presente nel sistema!"
+
+#: license-management-license.php:239
+msgid "LICENSE_SUCCESS_DELETE"
+msgstr "Targa Cancellata"
+
+#: license-management-license.php:241
+msgid "LICENSE_ERROR_DELETE"
+msgstr "Errore nella cancellazione della licenza"
+
+#: license-management-list.php:35
+msgid "LBL_CREATE_STEP_1"
+msgstr "Crea l’azienda e relazionala ad un utente"
+
+#: license-management-list.php:36
+msgid "LBL_CREATE_STEP_2"
+msgstr "Crea le targhe e relazionale all’azienda"
+
+#: license-management-list.php:37
+msgid "LBL_CREATE_STEP_3"
+msgstr "Crea l’autorizzazione e relazionala alla targa"
+
+#: license-management-list.php:40 tab/license-management-customers-tab.php:12
+msgid "LBL_USERS"
+msgstr "Clienti"
+
+#: license-management-list.php:41
+msgid "LBL_INDUSTRIES"
+msgstr "Aziende"
+
+#: license-management-list.php:42 tab/license-management-service-tab.php:11
+#: utils/license-management-dashboard-utils.php:435
+#: utils/license-management-dashboard-utils.php:501
+#: utils/license-management-utils.php:73
+msgid "Services"
+msgstr "Autorizzazioni"
+
+#: license-management-list.php:43 tab/license-management-license-tab.php:11
+msgid "LBL_LICENSES"
+msgstr "Targhe"
+
+#: license-management-messages.php:73 license-management-messages.php:76
+msgid "lbl_cancel"
+msgstr "Annulla"
+
+#: license-management-messages.php:81 utils/license-management-entity.php:180
+msgid "template_name"
+msgstr "Nome Template"
+
+#: license-management-messages.php:86
+msgid "lbl_set_default"
+msgstr "Imposta come Default"
+
+#: license-management-messages.php:209
+msgid "MESSAGES_SUCCESS_DELETE"
+msgstr "Messaggio Cancellato"
+
+#: license-management-messages.php:211
+msgid "MESSAGES_ERROR_DELETE"
+msgstr "Errore nella cancellazione del Messaggio"
+
+#: license-management-portal.php:39
+msgid "LBL_VIEW_ALL"
+msgstr "Visualizza tutto"
+
+#: license-management-portal.php:62 license-management-portal.php:74
+#: license-management-portal.php:113 license-management-portal.php:251
+#: license-management-service.php:135
+#: utils/license-management-dashboard-utils.php:27
+#: utils/license-management-dashboard-utils.php:342
+#: utils/license-management-dashboard-utils.php:433
+#: utils/license-management-dashboard-utils.php:503
+#: utils/license-management-entity.php:174
+msgid "License Plate"
+msgstr "Targa"
+
+#: license-management-portal.php:90
+msgid "LBL_DEADLINE_60_DAYS"
+msgstr "Scadenze 60 giorni"
+
+#: license-management-portal.php:149
+msgid "lbl_communication"
+msgstr "Comunicazioni"
+
+#: license-management-portal.php:173
+msgid "LBL_NOT_LICENSE_FOR_USER"
+msgstr "Non è disponibile nessuna licenza per te"
+
+#: license-management-portal.php:174 license-management-portal.php:281
+msgid "LBL_BACK"
+msgstr "Indietro"
+
+#: license-management-portal.php:177
+msgid "LBL_LOGIN_ACCOUNT"
+msgstr "Devi eseguire il login"
+
+#: license-management-portal.php:260
+msgid "LBL_DATE_END"
+msgstr "Data Scadenza"
+
+#: license-management-portal.php:285
+msgid "LBL_NOT_LICENSE_SELECT_STATUS"
+msgstr "Non è disponibile nessuna targa per lo stato selezionato"
+
+#: license-management-portal.php:287
+msgid "LBL_NOT_SERVICE_FOR_LICENSE"
+msgstr "Non sono presenti autorizzazioni per la targa selezionata"
+
+#: license-management-portal.php:354
+msgid "lbl_your_transport"
+msgstr "I tuoi Mezzi"
+
+#: license-management-portal.php:359 utils/license-management-utils.php:74
+msgid "lbl_deadlines"
+msgstr "Scadenze"
+
+#: license-management-portal.php:498
+msgid "Contact_us"
+msgstr "Contattaci"
+
+#: license-management-portal.php:500
+msgid "LBL_CALL_TO"
+msgstr "Chiama al"
+
+#: license-management-portal.php:506
+msgid "LBL_SEND_MESSAGE"
+msgstr "Invia Messaggio"
+
+#: license-management-portal.php:542 utils/license-management-utils.php:75
+msgid "January"
+msgstr "Gennaio"
+
+#: license-management-portal.php:543 utils/license-management-utils.php:76
+msgid "February"
+msgstr "Febbraio"
+
+#: license-management-portal.php:544 utils/license-management-utils.php:77
+msgid "March"
+msgstr "Marzo"
+
+#: license-management-portal.php:545 utils/license-management-utils.php:78
+msgid "April"
+msgstr "Aprile"
+
+#: license-management-portal.php:546 utils/license-management-utils.php:79
+msgid "May"
+msgstr "Maggio"
+
+#: license-management-portal.php:547 utils/license-management-utils.php:80
+msgid "June"
+msgstr "Giugno"
+
+#: license-management-portal.php:548 utils/license-management-utils.php:81
+msgid "July"
+msgstr "Luglio"
+
+#: license-management-portal.php:549 utils/license-management-utils.php:82
+msgid "August"
+msgstr "Agosto"
+
+#: license-management-portal.php:550 utils/license-management-utils.php:83
+msgid "September"
+msgstr "Settembre"
+
+#: license-management-portal.php:551 utils/license-management-utils.php:84
+msgid "October"
+msgstr "Ottobre"
+
+#: license-management-portal.php:552 utils/license-management-utils.php:85
+msgid "November"
+msgstr "Novembre"
+
+#: license-management-portal.php:553 utils/license-management-utils.php:86
+msgid "December"
+msgstr "Dicembre"
+
+#: license-management-service.php:125 license-management-service.php:377
+#: tab/license-management-service-tab.php:24
+#: tab/license-management-service-tab.php:40
+msgid "LBL_NEW_SERVICE"
+msgstr "Nuova Autorizzazione"
+
+#: license-management-service.php:127 tab/license-management-service-tab.php:42
+msgid "LBL_ADD"
+msgstr "Aggiungi"
+
+#: license-management-service.php:139
+msgid "Service Status"
+msgstr "Stato Autorizzazioni"
+
+#: license-management-service.php:143
+#: utils/license-management-dashboard-utils.php:436
+#: utils/license-management-dashboard-utils.php:504
+msgid "Date End"
+msgstr "Scadenza"
+
+#: license-management-service.php:197 license-management-service.php:365
+#: license-management-service.php:418
+msgid "ALERT_SERVICE_EXIST"
+msgstr "L’autorizzazione inserita è già presente nel sistema!"
+
+#: license-management-service.php:216
+msgid "SERVICE_SUCCESS_DELETE"
+msgstr "Autorizzazione Cancellata"
+
+#: license-management-service.php:218
+msgid "SERVICE_ERROR_DELETE"
+msgstr "Errore nella cancellazione dell’autorizzazione"
+
+#: license-management-service.php:270 license-management-service.php:272
+msgid "LBL_SAVE"
+msgstr "Salva"
+
+#: license-management-service.php:277
+msgid "LBL_CONFIRM_DELETE_SERVICE"
+msgstr "Vuoi cancellare l’autorizzazione"
+
+#: license-management-service.php:384
+#: utils/license-management-dashboard-utils.php:275
+#: utils/license-management-dashboard-utils.php:281
+msgid "LBL_EDIT_SERVICE"
+msgstr "Modifica Autorizzazione"
+
+#: license-management-service.php:421
+msgid "ALERT_SERVICE_EMPTY"
+msgstr "L’autorizzazione non può essere vuota"
+
+#: license-management-service.php:444 license-management-service.php:472
+msgid "LBL_ADD_MESSAGES"
+msgstr "Nuovo Messaggio"
+
+#: tab/license-management-enterprise-tab.php:12
+msgid "LBL_ENTERPRISES"
+msgstr "Aziende"
+
+#: tab/license-management-messages-tab.php:12
+msgid "LBL_MESSAGES"
+msgstr "Messaggi"
+
+#: tab/license-management-messages-tab.php:20
+msgid "LBL_CREATE_TEMPLATE_EMAIL"
+msgstr "Crea un template email"
+
+#: tab/license-management-messages-tab.php:29
+msgid "LBL_NEW_TEMPLATE_EMAIL"
+msgstr "Nuovo Template Email"
+
+#: utils/license-management-dashboard-utils.php:135
+msgid "LBL_ADD_ENTERPRISE_USER"
+msgstr "Aggiungi un’azienda all’utente"
+
+#: utils/license-management-dashboard-utils.php:139
+msgid "LBL_ADD_LICENSE_ENTERPRISE"
+msgstr "Aggiungi una targa all’azienda"
+
+#: utils/license-management-dashboard-utils.php:207
+msgid "LBL_ADD_ENTERPRISE_ONE_LICENSE"
+msgstr "Aziende con almeno una targa"
+
+#: utils/license-management-dashboard-utils.php:208
+msgid "LBL_CREATE_ENTERPRISE"
+msgstr "Crea una Azienda"
+
+#: utils/license-management-dashboard-utils.php:214
+#: utils/license-management-dashboard-utils.php:341
+#: utils/license-management-dashboard-utils.php:434
+#: utils/license-management-dashboard-utils.php:502
+msgid "User Name"
+msgstr "Cliente"
+
+#: utils/license-management-dashboard-utils.php:264
+msgid "LBL_ADD_LICENSE"
+msgstr "Aggiungi una targa per"
+
+#: utils/license-management-dashboard-utils.php:270
+msgid "LBL_EDIT_LICENSE"
+msgstr "Modifica la targa"
+
+#: utils/license-management-dashboard-utils.php:289
+msgid "LBL_EDIT_ENTERPRISE"
+msgstr "Modifica Azienda"
+
+#: utils/license-management-dashboard-utils.php:295
+msgid "LBL_NEW_COMMENT"
+msgstr "Nuovo Messaggio"
+
+#: utils/license-management-dashboard-utils.php:333
+msgid "LBL_LICENSE_OF_ENTERPRISE"
+msgstr "Le targhe delle aziende"
+
+#: utils/license-management-dashboard-utils.php:426
+msgid "LBL_SERVICE_OF_LICENSE"
+msgstr "Le autorizzazioni delle targhe"
+
+#: utils/license-management-dashboard-utils.php:437
+#: utils/license-management-dashboard-utils.php:505
+msgid "Services Status"
+msgstr "Stato Autorizzazione"
+
+#: utils/license-management-dashboard-utils.php:494
+msgid "LBL_LICENSE_OF_SERVICE"
+msgstr "Le targhe delle autorizzazioni"
+
+#: utils/license-management-dashboard-utils.php:730
+msgid "lbl_datend_next_month"
+msgstr "Scadenze prossimo mese"
+
+#: utils/license-management-dashboard-utils.php:731
+msgid "lbl_formula_datend_next_month"
+msgstr "Data di scadenza <= oggi + 50 giorni"
+
+#: utils/license-management-entity.php:161
+msgid "LBL_USER_EMAIL"
+msgstr "Email"
+
+#: utils/license-management-entity.php:163
+msgid "LBL_USER_REGISTERED"
+msgstr "Data registrazione"
+
+#: utils/license-management-entity.php:167
+#: utils/license-management-entity.php:171
+#: utils/license-management-entity.php:176
+#: utils/license-management-entity.php:182
+msgid "LBL_CREATEDTIME"
+msgstr "Data creazione"
+
+#: utils/license-management-entity.php:181
+msgid "active"
+msgstr "Attivo"
+
+#: utils/license-management-utils.php:66
+msgid "LBL_STATE_SERVICES"
+msgstr "Stato delle Autorizzazioni"
+
+#: utils/license-management-utils.php:69
+msgid "LBL_NEW_DATEEND"
+msgstr "Nuova Scadenza"
+
+#: utils/license-management-utils.php:71 utils/license-management-utils.php:165
+#: utils/license-management-utils.php:171
+msgid "LBL_YES"
+msgstr "Sì"
+
+#: utils/license-management-utils.php:72 utils/license-management-utils.php:167
+msgid "LBL_NO"
+msgstr "No"
+
+#: utils/license-management-utils.php:326
+msgid "lbl_WELCOME"
+msgstr "Benvenuto"
+
+#: utils/license-management-utils.php:381
+msgid "LBL_RETURN_DASHBOARD"
+msgstr "Ritorna alla Dashboard"
+
+#~ msgid "LBL_INVALID_REQUEST"
+#~ msgstr "Richiesta non valida"
+
+#~ msgid ": "
+#~ msgstr ":"
+
+#~ msgid "LBL_VIEW_ALL_LICESE_FOR_STATE"
+#~ msgstr "Visualizza solo le targhe con stato"
+
+#, fuzzy
+#~| msgid "status_1"
+#~ msgid "status_"
+#~ msgstr "Da Prenotare"
+
+#~ msgid "Add New License"
+#~ msgstr "Aggiungi una nuova Targa"
+
+#~ msgid "ALERT_SERVICE_NOT_EXIST"
+#~ msgstr "Non è presente nel sistema nessuna autorizzazione. "
+
+#~ msgid "Add New Service"
+#~ msgstr "Crea nuova Autorizzazione"
+
+#~ msgid "Match"
+#~ msgstr "Marzo"
+
+#~ msgid "LBL_NOT_AVAILABLE"
+#~ msgstr "Non è disponibile alcuna informazione. Riprova più tardi."
+
+#~ msgid "LBL_SUPPORT"
+#~ msgstr "Supporto"
+
+#, fuzzy
+#~| msgid "License Plate"
+#~ msgid "License plate"
+#~ msgstr "Targa"
+
+#~ msgid "Tools"
+#~ msgstr "Caga"

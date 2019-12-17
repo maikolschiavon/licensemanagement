@@ -1,0 +1,261 @@
+/*
+Copyright (C) License Management Schiavon Maikol
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+#license-management-container .fas{font-size: 20px}
+#license-management-container .widefat {width: auto;}
+#license-management-container .ss-list-width {min-width:10%}
+#license-management-container .ss-form-width {width:100%}
+#license-management-container .ss-th-width {width:25%}
+#license-management-container .ss-field-width {width:75%}
+
+/*#wpcontent{background: #f1f1f1;}*/
+#license-management-container .input-group .form-control, #service_name{height: 34px;}
+#license-management-container .col-license{padding: 30px 0px;}
+#license-management-container #license-plate{font-size: 35px;text-transform: uppercase;border: 1px solid #000;padding: 10px;}
+#license-management-container #license-plate:hover {background: #000;color: #fff;}
+
+/* .dashboard-header{background: #f3f3f3;}*/
+
+#license-management-container .container-status{height: 70px;color: #fff; font-size: 20px;text-align: center;border-radius: 3px;padding: 20px;}
+#license-management-container .container-status a{color: #fff;}
+#license-management-container .status1{background: #F44336;}
+#license-management-container .status2, .container-status.status2 a{background: #FFEB3B;color: #000;}
+#license-management-container .status3{background: #4CAF50;}
+
+#license-management-container .container-not-complete{height: 70px;font-size: 16px;text-align: center;border: 1px solid #ccc;padding: 10px 0px;margin: 10px 0px;color: #9f9f9f;text-transform: capitalize;}
+#license-management-container .container-not-complete .fas,.container-not-complete .far{font-size: 25px;padding-top: 10px;}
+#license-management-container .container-not-complete span{font-size: 13px;text-transform: none;}
+#license-management-container .container-not-complete a{color: #9f9f9f;}
+
+#license-management-container .container-dateend{min-height: 110px;font-size: 16px;text-align: center;border: 1px solid #ccc;padding: 10px 0px;margin: 10px 0px;color: #9f9f9f;text-transform: capitalize;border-radius: 3px;}
+/*#license-management-container .container-dateend{color: #9f9f9f;border: 1px solid;margin-bottom: 10px;}*/
+#license-management-container .container-dateend h4{font-size: 16px !important;}
+
+#license-management-container .wp-list-table{width: 100% !important;}
+#license-management-container .wp-list-table a i{font-size: 16px;}
+
+#license-management-container .table-header{padding: 20px 0px 20px 0px;border: 1px solid #e5e5e5;border-bottom: 0px;margin: 0px;color:#9f9f9f !important;}
+#license-management-container .table-header .dropdown button{background:#fff;border:0px;}
+#license-management-container .table-header .table-title{text-align: right;}
+
+#license-management-container table table{width: 100%;}
+#license-management-container table td span.status1, table td span.status3{padding:5px !important;color:#fff !important;border-radius: 50px;}
+#license-management-container table td span.status2{padding:5px;border-radius: 50px;}
+
+/*#license-management-container .col-btn-bolt-plus{bottom: -40px;}*/
+#license-management-container .btn-bolt-circle-plus{margin-right: 30px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);background: #4582EC;color: #fff;width: 50px;height: 50px;text-align: center;}
+/*#license-management-container .btn-bolt-add, .btn-bolt-add a{border: 1px;background:#4582EC;color:#fff;border-radius:30px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);float: right;}
+#license-management-container .btn-bolt-add:hover, .btn.btn-bolt-add:active,.btn-bolt-add .nav-pills > li > a,.btn-bolt-add:focus,.btn-bolt-add .dropdown-toggle:hover,.btn-bolt-add .dropdown-toggle:focus{background-color:#fff;border:1px solid #4582EC !important;color:#4582EC;border-radius: 30px;border:1px;}
+#license-management-container .btn-bolt-add i, .btn-dft-license i, .btn-bolt-add a{font-size:15px;margin:4px;}*/
+#license-management-container .btn-bolt-plus i{margin-top: 8px;font-size: 20px;height: 20px;width: 20px;}
+#license-management-container .btn-bolt-plus i:hover, .btn-bolt-plus:hover i, .btn-bolt-add .nav > li > a:hover i{color:#4582EC;}
+#license-management-container .btn-bolt-plus:hover{background:#fff;}
+
+/*
+#license-management-container .btn-bolt-add.nav{margin-left: 10px;}
+#license-management-container .btn-bolt-add .dropdown-toggle{border-radius: 30px;border: 0px;background: transparent;margin: 0px;border: 1px;}
+#license-management-container .btn-bolt-add .dropdown{margin: 0px;}
+*/
+
+.btn-search .nav .open a, .btn-search .nav .open > a:focus, .btn-search .nav .open > a:hover, .btn-search .nav .open > a:active,
+.btn-search .nav .open i, .btn-search .nav .open > i:focus, .btn-search .nav .open > i:hover, .btn-search .nav .open > i:active, .btn-search .open i,
+.btn-search li ul li a:hover {color:#4582EC;}
+#license-management-container .btn-search .dropdown-menu{left: -130px;}
+#license-management-container .btn-search ul{background: transparent;border: 0px;box-shadow: unset;border: 1px;}
+#license-management-container .btn-search a{background: #4582EC;color: #fff;border-radius: 30px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);float: right;}
+#license-management-container .btn-search .dropdown-menu li{box-shadow: 0 6px 12px rgba(0,0,0,.175);}
+#license-management-container .btn-search li ul li a{color: #fff;padding: 10px;}
+
+#license-management-container .btn-bolt, .btn-bolt-plus{border-radius: 50px;border: 1px solid #4582EC;float: right;margin-bottom: 10px;position: relative;}
+#license-management-container .btn-bolt:hover{background:#4582EC;color:#fff;}
+#license-management-container #collapseBoltCreate{background:#fff;}
+#license-management-container #collapseBoltCreate h2{margin:0px;text-align: center;}
+
+#license-management-container .btn-dft-license, .btn-dft-cancel{background: #fff;color: #9f9f9f;border-radius:30px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);float: right;}
+#license-management-container .btn-dft-license-save{background: #4CAF50;color: #fff;border-radius:30px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);float: right;margin-bottom: 20px;}
+#license-management-container .btn-dft-license-delete{background: #F44336;color: #fff;border-radius:30px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);float: right;margin-bottom: 20px;margin-right: 10px;}
+
+#license-management-container .btn-dft-license:hover,#dw_img_chart_status_service:hover,#dw_img_chart_num_service, .btn-dft-cancel:hover{background: #fff !important;}
+#license-management-container .btn.btn-dft-license-save:hover{border-color:#4CAF50;background: #fff;color:#4CAF50;}
+#license-management-container .btn.btn-dft-license-delete:hover{border-color:#F44336;background: #fff;color:#F44336;}
+
+#license-management-container .panel-default > .panel-heading + .panel-collapse > .panel-body{border-top:0px;}
+
+#license-management-container .btn-dft-cancel{margin-right: 10px;}
+
+#license-management-container #collapseLicenseCreate{margin-top:20px;}
+
+#collapseBoltCreate2 .well{background:#fff;border:0px;}
+#collapseBoltCreate2 .response-message, #collapseLicenseCreate .response-message, .modal-response-message, .collapse-response-message, .tab-content .response-message{padding: 20px;color: #fff;display:none;}
+#collapseBoltCreate2 .panel-default > .panel-heading{background: #fff;color: #9f9f9f;}
+#collapseBoltCreate2 .panel-default > .panel-heading h4::first-letter {font-size: 25px; margin-right: 10px;}
+
+#license-management-container .tab-pane .collapse .response-message,.tab-pane .collapsing .response-message, .after-form.response-message{padding: 20px;color: #fff;}
+
+#license-management-container .row-collapse-crea-bolt{margin-top:30px;}
+
+#license-management-container .dashboard-header .title{border-bottom: 1px solid #eee;}
+
+#license-management-container #dashboard .nav-tabs{margin-top:20px;}
+
+#license-management-container .nav-second{border:0px;}
+#license-management-container .nav-second > li a, #license-managment-module li a{color:#9f9f9f;}
+.nav-second > li.active > a,
+.nav-second > li.active > a:hover,
+.nav-second > li.active > a:focus{color: #1f232b;font-weight: 500;border:0px;background: transparent;color: #000;border-bottom: 2px solid #4582EC;; }
+
+#license-management-container .module-header{box-shadow: 0 4px 2px -2px rgba(0,0,0,.16);}
+#license-management-container .module-header .nav-tabs{border:0px;}
+#license-managment-module{margin-left:20px;}
+#license-managment-module li,#license-managment-module li a{height: 80px;text-align: center;border:0px;margin-bottom:10px;border-radius: 10px;min-width: 150px;}
+#license-managment-module > li.active > a,
+#license-managment-module > li.active > a:hover,
+#license-managment-module > li.active > a:focus{color:#fff;width: 80%;margin: auto;
+   /* background: #7F7FD5;
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  */
+    background: #12c2e9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+#license-managment-module > li div{margin-top:5px;}
+
+#license-management-container .tab-pane{margin:20px;}
+
+#license-management-container #charts .dropdown{float:right;}
+
+#license-management-container #no-more-tables table{margin-top: 30px;padding-left:0px;padding-right:0px;}
+
+#license-management-container .row-action{margin-top:20px;}
+
+#license-management-container .well label{display: block;color: #9f9f9f;}
+
+#license-management-container .row-block{margin: 15px 0px;}
+
+#license-management-container .token{background-color: #ededed;border: 1px solid #d9d9d9;border-radius: 3px;box-sizing: border-box;cursor: default;display: inline-block;margin: -1px 5px 5px 0;
+vertical-align: top;white-space: nowrap;padding:2px;border-radius: 15px;margin-top: 10px;}
+#license-management-container .token .token-label {display: inline-block;overflow: hidden;padding-left: 4px;text-overflow: ellipsis;vertical-align: top;font-size: 15px;padding-left:10px;}
+#license-management-container .token .close {display: inline-block;float: none;font-family: Arial;font-size: small;height: 100%;line-height: 1.49em; margin-left: 5px; padding-right: 10px; vertical-align: top;margin-top: 2px;}
+#license-management-container .token:hover {background: #F64747;color: #fff;border-color: #F64747;}
+#license-management-container .token .close:hover{color: #F64747;}
+#license-management-container .token .fa.fa-times:hover{color:#fff;}
+
+#license-management-container .wrap table{border:0px;}
+
+#license-management-container .modal-body{min-height:150px;}
+#license-management-container .modal-body textarea{width: 100%;}
+#license-management-container .modal-body .btn{margin-top:10px;}
+#license-management-container .modal-body .row:nth-child(2) {margin-top: 30px;}
+#license-management-container .modal-dialog{position: absolute;top: 50% !important;transform: translate(0, -50%) !important;-ms-transform: translate(0, -50%) !important;-webkit-transform: translate(0, -50%) !important;margin: auto 30%;width: 40%;height: 40%;}
+#license-management-container .modal .btn-default{margin-top:0px;}
+
+#license-management-container td i{color: #4582EC;}
+/*.wp-list-table tr{transition-duration: .3s;transition-property: transform;}
+.wp-list-table tr:hover{transform: scale(1.1);}*/
+
+#license-management-container .tab-pane #wp-content-editor-tools{margin-top: 50px;background: #fff;}
+#license-management-container .wp-editor-container iframe{min-height: 400px;}
+
+#license-management-container .well table{background: transparent;}
+
+#license-management-container .btn-footer {bottom: 10px;text-align: center;border-radius: 50%;width: 40px;height: 40px;right: 20px;position: fixed;padding: 0px;border: 0px;font-size: 16px;margin-bottom: 25px;z-index: 2;background-color: #4582EC;}
+
+#license-management-container .checkbox label{color:#000;}
+
+#license-management-container .badge-alert{position: absolute;top: -5px;left: -2px;background: #FFEB3B;border-radius: 100%;height: 40px;width: 40px;color: #000;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);}
+#license-management-container .badge-alert a{font-size: 12px;font-weight: 700;text-align: center;	white-space: nowrap;}
+#license-management-container .badge-alert i{text-align: center;font-size: 22px;line-height: unset;margin-left: 9px; margin-top: 3px;}
+
+#license-management-container .title-block{color: #9f9f9f;}
+
+#license-management-container .col-btn-bolt-plus .dropdown-toggle{border-radius: 50px;background: #4582EC;color: #fff;font-size: 14px;}
+#license-management-container .col-btn-bolt-plus .dropdown-toggle i, .btn-bolt-add .fas{font-size: 16px;}
+#license-management-container .col-btn-bolt-plus .dropdown-toggle:hover, .btn-bolt-add:hover, .btn-bolt-add a:hover, .btn-bolt-add:active{background: transparent;color: #4582EC;text-decoration: unset;}
+#license-management-container .btn-bolt-add{border: 1px;background: #4582EC;color: #fff;border-radius: 30px;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);float: right;padding: 6px 12px;}
+
+#license-management-container .btn-footer i{font-size: 18px !important;margin: unset !important;}
+#license-management-container .btn i {font-size: 16px;margin-right: 5px;}
+
+#license-management-container .box1 {font-size:12px;width: 300px;padding: 20px; text-align: center; font-weight: 900; font-family: arial; position: relative; background: #3498db;border: 1px solid #3498db;border-radius: 15px;color: #fff;}
+#license-management-container .sb7:before {content: "";width: 0px;height: 0px;position: absolute;border-left: 10px solid #3498db;border-right: 10px solid transparent;border-top: 10px solid #3498db;border-bottom: 10px solid transparent;left: 20px;bottom: -10px;}
+
+#license-management-container i .badge{position: absolute;margin-left: -10px;margin-top: -9px;background: #fff;color: #4582EC;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;font-size: 11px;}
+
+#license-management-container .input-group{width: 100%;}
+#license-management-container .input-group .form-control:last-child{border-top-left-radius: 4px;border-bottom-left-radius: 4px;border-top-right-radius: 4px;border-bottom-right-radius:4px;}
+
+#license-management-container .tab-pane .collapse, .tab-pane .collapsing{margin-top:20px;}
+
+#license-management-container .margin-right-ten{margin-right: 10px;}
+
+@media (min-width: 992px) {
+
+	/*#license-management-container .container-dateend{min-height: 200px;}*/
+	#license-management-container .container-status div:nth-child(2){font-size: 16px;}
+}
+
+@media only screen and (max-width: 800px) {
+    
+    /* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#no-more-tables tr { border: 1px solid #ccc; }
+ 
+	#no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+		white-space: normal;
+		text-align:left;
+	}
+ 
+	#no-more-tables td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+ 
+	/*
+	Label the data
+	*/
+	#no-more-tables td:before { content: attr(data-title); }
+}
