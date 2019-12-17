@@ -1,5 +1,6 @@
 === License Management ===
-Contributors: maikolschiavon
+Author: Maikol Schiavon
+Author URI: http://www.licensemanagement.it
 Donate link: No
 Tags: License, Management, License Plate, Work Vehicles, Customer Portal, Deadlines
 Requires at least: 5.2
