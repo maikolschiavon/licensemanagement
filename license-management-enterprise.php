@@ -85,7 +85,7 @@ function license_management_enterprise() {
             <?php } ?>
             
             <?php if ($mode != 'create') { ?>
-                <input type='submit' name="delete" value='Delete' class='btn btn-dft-license-delete' onclick="return confirm(' <?php _e('LBL_CONFIRM_DELETE_ENTERPRISE', 'license-management'); ?> ? ')">
+                <input type='submit' name="delete" value='<?php _e('LBL_DELETE', 'license-management');?>' class='btn btn-dft-license-delete' onclick="return confirm(' <?php _e('LBL_CONFIRM_DELETE_ENTERPRISE', 'license-management'); ?> ? ')">
             <?php } ?>
             <!-- TODO 
             <?php $link_back = admin_url('admin.php?page=license_management_list'); ?>

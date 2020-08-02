@@ -32,9 +32,13 @@ class DashboardUtils{
         return $service_status;
     }
 
-    function simple_table($sql_rows,$action){
+    function simple_table($sql_rows,$actions){
 
-        $all_actions = array("status"=>array("icon"=>"fas fa-pen","link"=>"license_management_service","eleID"=>"serviceid"));
+        // lm@1.2
+        $all_actions = array("status"=>array("icon"=>"fas fa-pen","link"=>"license_management_service","eleID"=>"serviceid"),
+                        "documents"=>array("icon"=>"far fa-file","click"=>"license_management_modal","eleID"=>"serviceid"),
+                        "authorization"=>array("icon"=>"far fa-file-alt","click"=>"license_management_modal","eleID"=>"serviceid"));
+        // lm@1.2e
         $status = array(1 =>array( "css"=>"status1", "lbl"=> __('status_1', 'license-management') ),
                         2 =>array( "css"=>"status2", "lbl"=> __('status_2', 'license-management') ),
                         3 =>array( "css"=>"status3", "lbl"=> __('status_3', 'license-management') ) );
@@ -53,25 +57,53 @@ class DashboardUtils{
 
         if(!empty($sql_rows)){
             foreach ($sql_rows as $row) {
-            $status_class_css = $status[$row->service_status]["css"];
-            $status_lbl = $status[$row->service_status]["lbl"];
+                $status_class_css = $status[$row->service_status]["css"];
+                $status_lbl = $status[$row->service_status]["lbl"];
+                $service_name = $row->service_name;
 
                 $html .= "<tr>";
                 $html .= "<td class='manage-column ss-list-width'>".$this->get_business_name($row->enterpriseid)."</td>";
                 $html .= "<td class='manage-column ss-list-width'>{$row->license_plate}</td>";
                 $html .= "<td class='manage-column ss-list-width'>".$this->get_user_name($row->userid)."</td>";
-                $html .= "<td class='manage-column ss-list-width'>{$row->service_name}</td>";
+                $html .= "<td class='manage-column ss-list-width'>{$service_name}</td>";
                 $html .= "<td class='manage-column ss-list-width'><span class='{$status_class_css}'>{$status_lbl}</span></td>";
                 //$html .= "<td class='manage-column ss-list-width'>{$row->messages}</td>";
-                if(isset($all_actions[$action])){
-                    $eleID =  $all_actions[$action]["eleID"];
-                    $url = admin_url('admin.php?page='.$all_actions[$action]["link"].'&id=' . $row->$eleID.'&licenseid='. $row->licenseid);
-                    $icon = $all_actions[$action]["icon"];
-                    $html .= "<td class='manage-column ss-list-width'>
-                                <a href='".$url."'><i class='$icon'></i></a>
-                            </td>";
+
+                // lm@1.2
+                if(!empty($actions)){
+                    $html .= "<td class='manage-column ss-list-width'>";
+                    foreach($actions as $action_name){
+                        if(isset($all_actions[$action_name])){
+                            $eleID =  $all_actions[$action_name]["eleID"];
+                            $icon = $all_actions[$action_name]["icon"];
+    
+                            if(isset($all_actions[$action_name]["link"])){
+                                $lbl_tooltip = __('LBL_EDIT_SERVICE', 'license-management')." ".$service_name;
+                                $url = admin_url('admin.php?page='.$all_actions[$action_name]["link"].'&id=' . $row->$eleID.'&licenseid='. $row->licenseid);
+                                $html .= "&nbsp; <a href='".$url."' data-toggle='tooltip' data-placement='top' data-original-title='$lbl_tooltip'><i class='$icon'></i></a>";
+                            }
+                            elseif(isset($all_actions[$action_name]["click"])){
+                                $fun = $all_actions[$action_name]["click"];
+                                $id1 = $row->$eleID;
+                                $id2 = $row->licenseid;
+                                
+                                if($action_name == "documents"){
+                                    $moda_title = __('LBL_DOCUMENTS','license-management');
+                                    $lbl_tooltip = __('LBL_UPLOAD_DOCUMENTS','license-management');
+                                }
+                                elseif($action_name == "authorization"){
+                                    $moda_title = __('LBL_AUTHORIZATION','license-management');
+                                    $lbl_tooltip = __('LBL_UPLOAD_AUTHORIZATION','license-management');
+                                }
+
+                                $html .= "&nbsp; <i class='$icon' data-toggle='tooltip' data-placement='top' data-original-title='$lbl_tooltip' onclick='$fun(\"$action_name\",$id1,$id2,\"\",\"$moda_title\")'></i>";
+                            }
+                                   
+                        }
+                    }
+                    $html .= "</td>";
                 }
-                $html .= "</tr>";
+                // lm@1.2e
             }
         }
         $html .= "</table>";
@@ -90,9 +122,9 @@ class DashboardUtils{
         if(!empty($rows)){
             $i = 0;
             foreach ($rows as $row) {
-            $users[$i]["user_login"] = $row->user_login;
-            $users[$i]["id"] = $row->id;
-            $i++;
+                $users[$i]["user_login"] = $row->user_login;
+                $users[$i]["id"] = $row->id;
+                $i++;
             }
         }
         return $users;

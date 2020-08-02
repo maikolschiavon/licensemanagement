@@ -384,20 +384,26 @@ function license_management_get_header_license(){
 
 
 function license_management_get_html_after_save_no_ajax($params,$entity_type){
+    $css_button = "background: #fff;
+    color: #9f9f9f;
+    border-radius: 30px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);margin-right: 10px;";
+    $css_button_i = "font-size: 16px;margin-right: 5px;";
+
     $css = " background: #F44336; ";
     if(isset($params["result"]) && $params["result"] == 1){
         $css = " background: #4CAF50; ";
     }
 
     $html = "<div class='container-fluid' style='margin-top:20px;'>
-               <a class='btn btn-dft-license' href='admin.php?page=license_management_service'>
-                 <i class='fas fa-map-signs'></i>".__('LBL_CREATE_SERVICE','license-management')."</a>
-                <a class='btn btn-dft-license margin-right-ten' href='admin.php?page=license_management_license'>
-                 <i class='fas fa-truck-moving'></i>".__('LBL_CREATE_LICENSE','license-management')."</a>
-                <a class='btn btn-dft-license margin-right-ten' href='admin.php?page=license_management_enterprise'>
-                 <i class='fas fa-industry'></i>".__('LBL_ADD_ENTERPRISE','license-management')."</a>
-                <a class='btn btn-dft-license pull-left' href='admin.php?page=license_management_list'>
-                 <i class='fas fa-solar-panel'></i>".__('LBL_RETURN_DASHBOARD','license-management')."</a>
+               <a class='btn btn-dft-license' href='admin.php?page=license_management_service' style='$css_button'>
+                 <i class='fas fa-map-signs' style='$css_button_i'></i>".__('LBL_CREATE_SERVICE','license-management')."</a>
+                <a class='btn btn-dft-license margin-right-ten' href='admin.php?page=license_management_license' style='$css_button'>
+                 <i class='fas fa-truck-moving' style='$css_button_i'></i>".__('LBL_CREATE_LICENSE','license-management')."</a>
+                <a class='btn btn-dft-license margin-right-ten' href='admin.php?page=license_management_enterprise' style='$css_button'>
+                 <i class='fas fa-industry' style='$css_button_i'></i>".__('LBL_ADD_ENTERPRISE','license-management')."</a>
+                <a class='btn btn-dft-license pull-left' href='admin.php?page=license_management_list' style='$css_button'>
+                 <i class='fas fa-solar-panel' style='$css_button_i'></i>".__('LBL_RETURN_DASHBOARD','license-management')."</a>
             </div>";
 
     $html .= "<div class='container-fluid'><div class='after-form response-message' style='margin-top:20px; ".$css."'>".$params["result_message"]."</div></div>";

@@ -1,10 +1,9 @@
 === License Management ===
-Author: Maikol Schiavon
-Author URI: http://www.licensemanagement.it
+Contributors: maikolschiavon
 Donate link: No
 Tags: License, Management, License Plate, Work Vehicles, Customer Portal, Deadlines
 Requires at least: 5.2
-Tested up to: 5.3
+Tested up to: 5.4.1
 Stable tag: 5.2
 Requires PHP: 5.2.4
 License: GPLv2 or later
@@ -34,7 +33,8 @@ No
 2. Customer Portal
 
 == Changelog ==
-No
+
+1.2 New management file Douments and file Authorization
 
 == Upgrade Notice ==
 No

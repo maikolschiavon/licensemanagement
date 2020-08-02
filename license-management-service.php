@@ -261,7 +261,7 @@ class license_management_service{
         
         if ($mode != 'create') { 
             // $message_confirm = _e('LBL_CONFIRM_DELETE_SERVICE', 'license-management'); // Vuoi cancellare il servizio?
-            $html .= "<input type='submit' name='delete' value='Delete' class='btn btn-dft-license-delete' onclick='return confirm(\' ".__('LBL_CONFIRM_DELETE_SERVICE', 'license-management')." \')'>";
+            $html .= "<input type='submit' name='delete'value='".__('LBL_DELETE', 'license-management')."' class='btn btn-dft-license-delete' onclick='return confirm(\' ".__('LBL_CONFIRM_DELETE_SERVICE', 'license-management')." \')'>";
          }
 
         return $html;

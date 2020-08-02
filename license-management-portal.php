@@ -20,8 +20,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 add_action( 'wp_enqueue_scripts', 'license_management_get_content_html_list');
 add_action( 'wp_enqueue_scripts', 'license_management_get_content_html_detail');
 
-wp_enqueue_style( 'bootstrap-license', plugins_url( 'license-management', 'license-management' ).'/lib/bootstrap/css/bootstrap.min.css',false,'1.0','all');
-wp_enqueue_style( 'fontawesome-license', plugins_url( 'license-management', 'license-management' ).'/lib/fontawesome-free-5.3.1/css/all.css',false,'1.0','all');
+//wp_enqueue_style( 'bootstrap-license', plugins_url( 'license-management', 'license-management' ).'/lib/bootstrap/css/bootstrap.min.css',false,'1.0','all');
+//wp_enqueue_style( 'fontawesome-license', plugins_url( 'license-management', 'license-management' ).'/lib/fontawesome-free-5.3.1/css/all.css',false,'1.0','all');
 
 wp_enqueue_script('cs_functions_js',true);
 wp_localize_script('cs_functions_js', 'langvars', license_management_get_translation_for_js());
@@ -54,7 +54,7 @@ function license_management_get_content_html_list($status){
 
             if(!empty($status)){
                 $html .= "<div class='container'>";
-                $html .= "<div class='row'><a class='btn btn-default' href='".$page_permalink."'><i class='glyphicon glyphicon-menu-left'></i> ".__('LBL_VIEW_ALL', 'license-management')."</a></div>";
+                $html .= "<div class='row'><a class='btn btn-default' href='".$page_permalink."'><i class='fas fa-arrow-left'></i></i> ".__('LBL_VIEW_ALL', 'license-management')."</a></div>";
                 $html .= "</div>";
             }
 
@@ -213,6 +213,11 @@ function license_management_get_content_html_detail($id = '',$status = ''){
         require_once "utils/license-management-dashboard-utils.php";
         $tool_dachboardUtils = new DashboardUtils;
 
+        // lm@1.2
+        require_once "utils/license-management-upload-file.php";
+        $file = new license_management_upload_file;
+        // lm@1.2e
+
         $records = $tool_dachboardUtils->get_license_service($records);
         
         $html = "<div class='container' id='license_management_customerportal'>";
@@ -247,16 +252,22 @@ function license_management_get_content_html_detail($id = '',$status = ''){
                         $color1 = $service_status_color[$service_status][0];
                         $lbl_status =  __('status_1', 'license-management');
                         $lbl_status_color = $color1;
+
+                        $files = $file->get_upload_file($serviceid,$licenseid,0,"documents"); // lm@1.2
                     }
                     if($service_status == 2){
                         $color2 = $service_status_color[$service_status][0];
                         $lbl_status =  __('status_2', 'license-management');
                         $lbl_status_color = $color2;
+
+                        $files = $file->get_upload_file($serviceid,$licenseid,0,"documents"); // lm@1.2
                     }
                     if($service_status == 3){
                         $color3 = $service_status_color[$service_status][0];
                         $lbl_status =  __('status_3', 'license-management');
                         $lbl_status_color = $color3;
+
+                        $files = $file->get_upload_file($serviceid,$licenseid); // lm@1.2
                     }
 
                     $html .= "<div class='row row-license'>";
@@ -271,8 +282,46 @@ function license_management_get_content_html_detail($id = '',$status = ''){
                     $html .= "<div class='block-status' style='background:$color3'></div>";
                     $html .= "<h5 style='color:$lbl_status_color'>$lbl_status</h5>";
                     if($date_view){
-                    $html .= "<div class='row'> <div class='col-xs-6'> <h6>".__('LBL_DATE_END','license-management')."</h6> </div> <div class='col-xs-6'><h6>$date_end</h6> </div> </div>";
+                        $html .= "<div class='row row-dateend'> <div class='col-xs-6'> <h6>".__('LBL_DATE_END','license-management')."</h6> </div> <div class='col-xs-6'><h6>$date_end</h6> </div> </div>";
                     }
+                    // lm@1.2
+                    if(!empty($files)){
+                        $html_authorization = $html_documents = "";
+                        $html_authorization_title = "<div class='row row-documents'> <div class='col-xs-6'> <h6>".__('authorization', 'license-management')."</h6> </div> ";
+                        $html_documents_title = "<div class='row row-documents'> <div class='col-xs-6'> <h6>".__('Documents', 'license-management')."</h6> </div> ";
+
+                        foreach($files as $fileid=>$file_values){
+                            $filename = $file_values["filename"];
+                            $directory_file = $file_values["directory_file"];
+                            $file_type = $file_values["type"];
+                            
+                            if($file_type == "authorization"){
+                                $html_authorization .= '<div class="col-xs-10"><a href="'.$directory_file.'" class="filename" target="_blank"><i class="fa fa-cloud-download"></i> '.$filename.'</a></div>';
+                            }
+                            elseif($file_type == "documents"){
+                                $html_documents .= '<div class="col-xs-12"><a href="'.$directory_file.'" class="filename" target="_blank"><i class="fa fa-cloud-download"></i> '.$filename.'</a></div>';
+                            }
+                        }
+
+                        if(!empty($html_authorization)){
+                            $html .= $html_authorization_title;
+                            $html .= $html_authorization. "</div>";
+                        }
+                        if(!empty($html_documents)){
+                            $html .= $html_documents_title;
+                            $html .= $html_documents. "</div>";
+                        }
+                    }
+                    if(!empty($files_documents)){
+                        $html .= "<div class='row row-documents'> <div class='col-xs-6'> <h6>".__('Documents', 'license-management')."</h6> </div> ";
+                        foreach($files_documents as $fileid=>$file_values){
+                            $filename = $file_values["filename"];
+                            $directory_file = $file_values["directory_file"];
+                            $html .= '<div class="col-xs-12"><a href="'.$directory_file.'" class="filename" target="_blank"><i class="fa fa-cloud-download"></i> '.$filename.'</a></div>';
+                        }
+                        $html .= "</div>";
+                    }
+                    // lm@1.2e
                     $html .= "</div>";
                     $html .= "</div>";
                     $html .= "<div class='col-md-6 col-sm-12'>";
@@ -292,7 +341,7 @@ function license_management_get_content_html_detail($id = '',$status = ''){
                 }
             }
             
-            $html .= "<div class='row call-back'><a class='btn btn-default' href='".get_permalink($pageid)."'><i class='glyphicon glyphicon-menu-left'></i> <span>".__('LBL_BACK', 'license-management')."</span></a></div>";
+            $html .= "<div class='row call-back'><a class='btn btn-default' href='".get_permalink($pageid)."'><i class='fas fa-arrow-left'></i> <span>".__('LBL_BACK', 'license-management')."</span></a></div>";
         }else{
 
             $pageid = $customer_portal->license_management_get_pageid();
@@ -303,7 +352,7 @@ function license_management_get_content_html_detail($id = '',$status = ''){
             }else{
                 $html .= "<h2>".__('LBL_NOT_SERVICE_FOR_LICENSE', 'license-management')."</h2>";
             }
-            $html .= "<div class='row call-back'><a class='btn btn-default' href='".$page_permalink."'><i class='glyphicon glyphicon-menu-left'></i> <span>".__('LBL_BACK', 'license-management')."</span></a></div>";
+            $html .= "<div class='row call-back'><a class='btn btn-default' href='".$page_permalink."'><i class='fas fa-arrow-left'></i> <span>".__('LBL_BACK', 'license-management')."</span></a></div>";
         }
         $html .= "</div>";
     }

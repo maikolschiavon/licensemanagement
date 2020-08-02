@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  * Management enable complete dashboard for handle to the best all information, such as customer, license plate and permissions. 
  * All of this can do user administrator while the customer show his information by portal. 
  * The first thing to do is insert all information related customer, and after create user Wordpress for customer and communicate to them his username and password for execute login.
- * Version:           1.0
+ * Version:           1.2
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Maikol Schiavon
@@ -48,6 +48,7 @@ function license_management_install() {
 	$table_name_service = $wpdb->prefix . "license_management_service";
 	$table_name_changelog = $wpdb->prefix . "license_management_changelog";
 	$table_name_service_rel = $wpdb->prefix . "license_management_service_rel";
+	$table_name_upload_file = $wpdb->prefix . "license_management_upload_file";	// lm@1.2
 
 	$charset_collate = $wpdb->get_charset_collate();
 	
@@ -112,12 +113,40 @@ function license_management_install() {
 		PRIMARY KEY (`id`)
 	) $charset_collate ";
 
+	// lm@1.2
+	$sql_upload_file = "CREATE TABLE $table_name_upload_file (
+		`id` int(11) NOT NULL AUTO_INCREMENT,
+		`serviceid` int(11) DEFAULT NULL,
+		`licenseid` int(11) NOT NULL,
+		`createdtime` timestamp NULL DEFAULT NULL,
+		`file` longtext COLLATE utf8mb4_unicode_520_ci,
+		`type` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+		`deletedtime` timestamp NULL DEFAULT NULL,
+		`deleted` int(1) DEFAULT NULL,
+		`send_mail` int(1) DEFAULT NULL,
+		PRIMARY KEY (`id`)
+	) $charset_collate ";
+	// lm@1.2e
+
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta($sql_license);
 	dbDelta($sql_enterprise);
 	dbDelta($sql_service);
 	dbDelta($sql_chagelog);
 	dbDelta($sql_service_rel);
+	dbDelta($sql_upload_file);	// lm@1.2
+
+	if(is_dir(ABSPATH . "wp-content/languages/plugins")) {
+		$files = preg_grep('~^license-management-.*\.po$~', scandir(ABSPATH . "wp-content/languages/plugins"));
+		foreach($files as $filename){
+			unlink(ABSPATH . "wp-content/languages/plugins/".$filename);
+		}
+
+		$files = preg_grep('~^license-management-.*\.mo$~', scandir(ABSPATH . "wp-content/languages/plugins"));
+		foreach($files as $filename){
+			unlink(ABSPATH . "wp-content/languages/plugins/".$filename);
+		}
+	}
 }
 
 // run the install scripts upon plugin activation
@@ -172,43 +201,68 @@ function license_management_insert_page(){
       'post_type'     => 'page',
     );
 
-    // Insert the post into the database
-    wp_insert_post( $my_post, '' );
+	$page_exists = get_page_by_title( $my_post['post_title'] );
+
+	// Insert the post into the database
+	if( $page_exists == null ) {
+		wp_insert_post( $my_post, '' );
+	}
 }
 
-function license_management_require_lib(){
-	define('LICENSE_MANAGEMENT_URL', plugins_url( 'license-management', 'license-management' ));
+function license_management_require_lib($action = ""){
+	if (! defined('LICENSE_MANAGEMENT_URL') ) {
+		define('LICENSE_MANAGEMENT_URL', plugins_url( 'license-management', 'license-management' ));
+	}
+	
+	if($action == "customerportal"){
+		wp_enqueue_style( 'timeline', LICENSE_MANAGEMENT_URL .'/css/timeline.css',false,'1.0','all');
+		wp_enqueue_style( 'customerportal', LICENSE_MANAGEMENT_URL .'/css/customerportal.css',false,'1.0','all');
+		
+		wp_enqueue_style( 'bootstrap_customerportal', LICENSE_MANAGEMENT_URL .'/css/bootstrap_customerportal.css',false,'1.0','all');
+		wp_enqueue_script( 'bootstrap-license-js', LICENSE_MANAGEMENT_URL .'/lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '20180909', true );
+	
+		wp_enqueue_style( 'fontawesome', LICENSE_MANAGEMENT_URL .'/lib/fontawesome-free-5.3.1/css/all.css',false,'1.0','all');
+		
+		// Chart.js
+		wp_enqueue_script( 'chart-js', LICENSE_MANAGEMENT_URL .'/lib/Chart.js/Chart.js', array(), true );
+		wp_enqueue_script( 'license-management-chart', LICENSE_MANAGEMENT_URL .'/js/license-management-chart.js', array( 'jquery' ), '20181006', true );
+	}
+	else{
 
-	wp_enqueue_style( 'timeline', LICENSE_MANAGEMENT_URL .'/css/timeline.css',false,'1.0','all');
-	wp_enqueue_style( 'dashboard-css', LICENSE_MANAGEMENT_URL .'/css/dashboard.css',false,'1.0','all');
-	wp_enqueue_style( 'customerportal', LICENSE_MANAGEMENT_URL .'/css/customerportal.css',false,'1.0','all');
+		wp_enqueue_style( 'timeline', LICENSE_MANAGEMENT_URL .'/css/timeline.css',false,'1.0','all');
+		wp_enqueue_style( 'dashboard-css', LICENSE_MANAGEMENT_URL .'/css/dashboard.css',false,'1.0','all');
+		wp_enqueue_style( 'customerportal', LICENSE_MANAGEMENT_URL .'/css/customerportal.css',false,'1.0','all');
 
-	wp_enqueue_style( 'bootstrap-license', LICENSE_MANAGEMENT_URL .'/lib/bootstrap/css/bootstrap.min.css',false,'1.0','all');
-	wp_enqueue_style( 'fontawesome', LICENSE_MANAGEMENT_URL .'/lib/fontawesome-free-5.3.1/css/all.css',false,'1.0','all');
+		wp_enqueue_style( 'bootstrap-license', LICENSE_MANAGEMENT_URL .'/lib/bootstrap/css/bootstrap.min.css',false,'1.0','all');
+		wp_enqueue_style( 'fontawesome', LICENSE_MANAGEMENT_URL .'/lib/fontawesome-free-5.3.1/css/all.css',false,'1.0','all');
 
-	wp_enqueue_script( 'bootstrap-license-js', LICENSE_MANAGEMENT_URL .'/lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '20180909', true );
-	wp_enqueue_script( 'bootstrap-popper-license-js', LICENSE_MANAGEMENT_URL .'/lib/bootstrap/js/Popper.js', array( 'jquery' ), '20180909', true );
+		wp_enqueue_style( 'toggle_switch', LICENSE_MANAGEMENT_URL .'/css/toggle_switch.css',false,'1.0','all');	// lm@1.2
 
-	// Chart.js
-	wp_enqueue_script( 'chart-js', LICENSE_MANAGEMENT_URL .'/lib/Chart.js/Chart.js', array(), true );
-	wp_enqueue_script( 'license-management-chart', LICENSE_MANAGEMENT_URL .'/js/license-management-chart.js', array( 'jquery' ), '20181006', true );
+		wp_enqueue_script( 'bootstrap-license-js', LICENSE_MANAGEMENT_URL .'/lib/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '20180909', true );
+		wp_enqueue_script( 'bootstrap-popper-license-js', LICENSE_MANAGEMENT_URL .'/lib/bootstrap/js/Popper.js', array( 'jquery' ), '20180909', true );
 
-	wp_enqueue_script( 'dashboard-js', LICENSE_MANAGEMENT_URL .'/js/license-management-dashboard.js', array(), true );
+		// Chart.js
+		wp_enqueue_script( 'chart-js', LICENSE_MANAGEMENT_URL .'/lib/Chart.js/Chart.js', array(), true );
+		wp_enqueue_script( 'license-management-chart', LICENSE_MANAGEMENT_URL .'/js/license-management-chart.js', array( 'jquery' ), '20181006', true );
 
-	wp_enqueue_script( 'license-management-entity', LICENSE_MANAGEMENT_URL .'/js/license-management-entity.js', array(), true );
+		wp_enqueue_script( 'dashboard-js', LICENSE_MANAGEMENT_URL .'/js/license-management-dashboard.js', array(), true );
 
-	// fullcalendar
-	wp_enqueue_style( 'calendar', LICENSE_MANAGEMENT_URL .'/css/calendar.css',false,'1.0','all');
-	wp_enqueue_style( 'fullcalendar', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/fullcalendar.min.css',false,'1.0','all');
-	wp_enqueue_style( 'fullcalendar-print', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/fullcalendar.print.min.css',false,'1.0','all');
-	// wp_enqueue_script( 'calendar-js', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/lib/fullcalendar_moment.min.js', array(), true );
-	// wp_enqueue_script( 'fullcalendar-js', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/fullcalendar.min.js', array(), true );
-	wp_enqueue_script( 'fullcalendar-inizialize-js', LICENSE_MANAGEMENT_URL .'/js/license-management-calendar-inizialize.js', array(), true );
-	wp_enqueue_script( 'calendar-js', LICENSE_MANAGEMENT_URL .'/js/license-management-calendar.js', array(), true );
+		wp_enqueue_script( 'license-management-entity', LICENSE_MANAGEMENT_URL .'/js/license-management-entity.js', array(), true );
+
+		// fullcalendar
+		wp_enqueue_style( 'calendar', LICENSE_MANAGEMENT_URL .'/css/calendar.css',false,'1.0','all');
+		wp_enqueue_style( 'fullcalendar', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/fullcalendar.min.css',false,'1.0','all');
+		wp_enqueue_style( 'fullcalendar-print', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/fullcalendar.print.min.css',false,'1.0','all');
+		// wp_enqueue_script( 'calendar-js', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/lib/fullcalendar_moment.min.js', array(), true );
+		// wp_enqueue_script( 'fullcalendar-js', LICENSE_MANAGEMENT_URL .'/lib/fullcalendar/fullcalendar.min.js', array(), true );
+		wp_enqueue_script( 'fullcalendar-inizialize-js', LICENSE_MANAGEMENT_URL .'/js/license-management-calendar-inizialize.js', array(), true );
+		wp_enqueue_script( 'calendar-js', LICENSE_MANAGEMENT_URL .'/js/license-management-calendar.js', array(), true );
+	}
 }
 
 function license_management_replace_content ($content){
-	license_management_require_lib();
+	license_management_require_lib("customerportal");
+	
 	$content = str_replace ("[license-management-view]", license_management_get_control_content_html(), $content);
 	return $content;
 }
@@ -249,6 +303,8 @@ require_once(LICENSE_MANAGEMENT_ROOTDIR . 'utils/license-management-dashboard-ut
 require_once(LICENSE_MANAGEMENT_ROOTDIR . 'utils/license-management-entity.php');
 require_once(LICENSE_MANAGEMENT_ROOTDIR . 'license-management-calendar.php');
 //require_once(LICENSE_MANAGEMENT_ROOTDIR . 'license-management-dashboard.php');
+
+require_once(LICENSE_MANAGEMENT_ROOTDIR . 'utils/license-management-upload-file.php');  // lm@1.2
 
 if(isset($_REQUEST["page"]) && ($_REQUEST["page"] == 'license_management_list' || $_REQUEST["page"] == 'license_management_service' || $_REQUEST["page"] == 'license_management_enterprise' || $_REQUEST["page"] == 'license_management_license') ){
 	license_management_require_lib();
@@ -299,6 +355,24 @@ function license_management_ajax(){
 		header("Content-disposition: csv" . date("Y-m-d") . ".csv");
 		header( "Content-disposition: filename=".$filename.".csv");
 		print $csv_output;*/
+	}elseif(isset($_REQUEST["create"]) && ($_REQUEST["create"] == "documents" || $_REQUEST["create"] == "authorization")){	// lm@1.2
+		$type = $_REQUEST["create"];
+		$serviceid = intval($_REQUEST["serviceid"]);
+		$licenseid = intval($_REQUEST["licenseid"]);
+
+		$lm_upload_file = new license_management_upload_file();
+		echo $lm_upload_file->get_form($serviceid,$licenseid,$type);
+
+	}elseif(isset($_REQUEST["method"]) && $_REQUEST["method"] == "delete"){
+		$entity = $_REQUEST["entity"];
+
+		if($entity == "file"){
+			$fileid = intval($_REQUEST["fileid"]);
+
+			$lm_upload_file = new license_management_upload_file();
+			$lm_upload_file->delete($fileid);
+		}
+		// lm@1.2e
 	}elseif( isset($_REQUEST["mode"]) && ( $_REQUEST["mode"] == "messages_tmp" || $_REQUEST["mode"] == "del_messages_tmp") ){
 		license_management_messages();
 	}elseif( isset($_REQUEST["mode"]) && $_REQUEST["mode"] == "tab"){
@@ -329,6 +403,23 @@ function license_management_ajax(){
 	}
 	wp_die();
 }
+/*
+class load_language 
+{
+    public function __construct()
+    {
+    add_action('init', array($this, 'load_my_transl'));
+    }
+
+     public function load_my_transl()
+    {
+        load_plugin_textdomain('license-management2', FALSE, dirname(plugin_basename(__FILE__)).'/languages/');
+    }
+}
+
+$zzzz = new load_language;
+*/
+
 
 load_plugin_textdomain('license-management', FALSE, basename(dirname(__FILE__)) . '/languages/');
 

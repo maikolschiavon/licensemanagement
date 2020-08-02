@@ -122,6 +122,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 #license_management_customerportal .row-license:nth-child(odd){background: #efefef;}
 
+/* lm@1.2 */
+#license_management_customerportal .row-dateend, #license_management_customerportal .row-documents{margin-top: 10px;}
+#license_management_customerportal .filename{margin-top: 10px;font-size:16px;}
+
+#license_management_customerportal #collapseDeadline{transition: unset;}
+/* lm@1.2e */
+
+
 @media (min-width: 992px) {
     #license_management_customerportal .timeline{margin-left: 50px;}
 }

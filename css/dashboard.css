@@ -47,7 +47,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #license-management-container .container-dateend h4{font-size: 16px !important;}
 
 #license-management-container .wp-list-table{width: 100% !important;}
-#license-management-container .wp-list-table a i{font-size: 16px;}
+#license-management-container .wp-list-table a i, #license-management-container .wp-list-table i{font-size: 16px;cursor: pointer;}	/* lm@1.2 */
 
 #license-management-container .table-header{padding: 20px 0px 20px 0px;border: 1px solid #e5e5e5;border-bottom: 0px;margin: 0px;color:#9f9f9f !important;}
 #license-management-container .table-header .dropdown button{background:#fff;border:0px;}

@@ -407,7 +407,7 @@ function license_management_removeTagUrl(key, sourceURL = '') {
 }
 function license_management_get_data_modal(type, entityid, entityid2, params = ''){
     if(params == ''){
-        if(type == 'add_messages'){
+        if(type == 'add_messages' || type == 'documents' || type == 'authorization'){ // lm@1.2 add documents authorization
             var params = {};
             params['action'] = 'license_management_request';
             params['create'] = type;
@@ -564,3 +564,28 @@ function license_management_collapse(collapseid){
         }
     });
 }
+// lm@1.2
+function license_management_delete_upload_file(fileid,type){
+    jQuery.ajax({
+        url: ajaxurl,
+        data: {
+            'action': 'license_management_request',
+            'method': 'delete',
+            'entity': 'file',
+            'fileid': fileid
+        },
+        success:function(data) {
+            // This outputs the result of the ajax request
+            jQuery('#file-'+fileid).hide();
+
+            if(type == 'authorization'){
+                jQuery('#container-upload-file').removeClass('hidden');
+            }
+
+        },
+        error: function(errorThrown){
+            console.log(errorThrown);
+        }
+    });
+}
+// lm@1.2e

@@ -16,6 +16,38 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+
+// lmv@1.2
+// Upload file
+if(isset($_POST['but_submit'])){
+
+    if($_FILES['file']['name'] != ''){
+        $uploadedfile = $_FILES['file'];
+        $upload_overrides = array( 'test_form' => false );
+        // $upload_overrides = array( 'license_management_upload' => false );
+
+        $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+        $imageurl = "";
+
+        if ( $movefile && ! isset( $movefile['error'] ) ) {
+            $type = $_REQUEST["type"];
+            $serviceid = intval($_REQUEST["serviceid"]);
+            $licenseid = intval($_REQUEST["licenseid"]);
+
+            $send_mail = "off";
+            if(isset($_REQUEST["mail"])){
+                $send_mail = $_REQUEST["mail"];
+            }
+
+            $lm_upload_file = new license_management_upload_file();
+		    $lm_upload_file->save($serviceid,$licenseid,$movefile["file"],$send_mail,$type);
+        } else {
+            echo $movefile['error'];
+        }
+    }
+}
+// lmv@1.2e
+
 ?>
 
  <div class="dashboard-header">
@@ -207,9 +239,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
                     </div>
                     
                     <?php
+                     
                         if( isset($dashboard_count[$status]) ){
+                            // lm@1.2
+                            $actions = array("status","documents");
+                            if($status == 3){
+                                $actions[] = "authorization";
+                            }
+                            // lm@1.2e
+
                             $dashboard_num = $dashboard_count[$status]["record"];
-                            $collapse_detail = $tool_dachboardUtils->simple_table($dashboard_num,"status");
+                            $collapse_detail = $tool_dachboardUtils->simple_table($dashboard_num,$actions); // lm@1.2
                             $collapse_html .= "<div id='".$status_val["collapsename"]."' class='panel-collapse collapse' role='tabpanel' aria-labelledby='".$status_val["css_class"]."'>
                                                 <div class='panel-body'>".$collapse_detail."</div></div>";
                         }

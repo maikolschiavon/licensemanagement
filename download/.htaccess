@@ -1,0 +1,11 @@
+
+# BEGIN License Management
+# Questo .htaccess file assicura che non è possibile scaricare i file di backup.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} !key=0d2cebb756a8c6bbe52635a8f91e64fd
+RewriteRule (.*) - [F]
+</IfModule>
+
+# END License Management
